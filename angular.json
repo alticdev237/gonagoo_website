@@ -50,9 +50,25 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/ngx-toastr/toastr.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "src/assets/js/vendor/jquery-3.6.0.min.js",
+              "src/assets/js/bootstrap.bundle.min.js",
+              "src/assets/js/jquery.magnific-popup.min.js",
+              "src/assets/js/jquery.counterup.min.js",
+              "src/assets/js/jquery.appear.js",
+              "src/assets/js/swiper-bundle.min.js",
+              "src/assets/js/svg-inject.min.js",
+              "src/assets/js/ajax-form.js",
+              "src/assets/js/jquery.marquee.min.js",
+              "src/assets/js/jquery-ui.min.js",
+              "src/assets/js/wow.min.js",
+              "src/assets/js/aos.js",
+              "src/assets/js/main.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -116,5 +132,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }

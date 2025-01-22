@@ -1,0 +1,122 @@
+<!-- main-area-end -->
+<main class="fix">
+
+    <!-- breadcrumb-area -->
+    <section class="breadcrumb__area breadcrumb__bg" style="background-image: url('assets/img/bg/video_bg_mirror.jpg');">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="breadcrumb__content">
+                        <h1 class="title">Contactez-Nous</h1>
+                        <nav class="breadcrumb">
+                            <span property="itemListElement" typeof="ListItem">
+                                <a routerLink="/">Accueil</a>
+                            </span>
+                            <span class="breadcrumb-separator"><i class="flaticon-right-arrow"></i></span>
+                            <span property="itemListElement" typeof="ListItem">Contacts</span>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- breadcrumb-area-end -->
+
+    <!-- contact-area -->
+    <section class="contact__area section-py-120">
+        <div style="margin-top: -100px;" class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="contact__form-wrap">
+                        <h2 class="title">Laissez-nous un message</h2>
+                        <form (ngSubmit)="submitForm(contactForm)" #contactForm="ngForm" class="contact__form">
+                            <div class="row gutter-20">
+                                <div class="col-lg-4">
+                                    <div class="form-grp">
+                                        <input type="text" name="name" [(ngModel)]="formFields.name" #nameInput="ngModel" placeholder="nom*" required>
+                                        <div class="is-error" *ngIf="nameInput.invalid && nameInput.touched">Votre nom est obligatoire !</div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="form-grp">
+                                        <input type="email" name="email" [(ngModel)]="formFields.email" #emailInput="ngModel" placeholder="E-mail*" required email>
+                                        <div class="is-error" *ngIf="emailInput.invalid && emailInput.touched">Votre adresse mail est obligatoire !</div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="form-grp">
+                                        <input type="tel" name="phone" #phoneInput="ngModel" [(ngModel)]="formFields.phone" placeholder="Téléphone*" required>
+                                        <div class="is-error" *ngIf="phoneInput.invalid && phoneInput.touched">Numéro de téléphone obligatoire !</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-grp">
+                                <input type="text" name="subject" #subjectInput="ngModel" [(ngModel)]="formFields.subject" placeholder="Objet*" required>
+                                <div class="is-error" *ngIf="subjectInput.invalid && subjectInput.touched">L'objet est obligatoire !</div>
+                            </div>
+                            <div class="form-grp">
+                                <textarea name="message" placeholder="Message" [(ngModel)]="formFields.message"></textarea>
+                            </div>
+                            <button type="submit" class="btn red-btn" [disabled]="contactForm.invalid">{{ isSubmitting ? 'Envoi en cours...' : 'Envoyer un message' }} <img src="assets/img/icon/right_arrow.svg" alt="" class="injectable"></button>
+                        </form>
+                        <!-- <p class="ajax-response mb-0"></p> -->
+                    </div>
+                </div>
+            </div>
+            <div style="margin-top: 50px; text-align: center;" class="row">
+                <div class="col-lg-3 col-sm-6">
+                    <div class="contact__info-item">
+                        <h4 class="title">
+                            <img src="assets/img/icon/google-maps.gif" style="margin-top: -10px;" height="35px" width="35px" alt="">
+                            Nos Locaux
+                        </h4>
+                        <p class="info-one">Rue Drouot, immeuble des amitiés, porte 102 <br> Akwa, Douala – Cameroun</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="contact__info-item">
+                        <h4 class="title">
+                            <img src="assets/img/icon/email.gif" style="margin-top: -10px;" height="35px" width="35px" alt="">
+                            Adresses mail
+                        </h4>
+                        <a href="mailto:contact@gonagoo.com">contact&#64;gonagoo.com</a><br>
+                        <a href="mailto:sales@gonagoo.com">sales&#64;gonagoo.com</a><br>
+                        <!-- <a href="mailto:operations@gonagoo.com">operations&#64;gonagoo.com</a> -->
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-sm-6">
+                    <div class="contact__info-item">
+                        <h4 class="title">
+                            <img src="assets/img/icon/call.gif" style="margin-top: -10px;" height="35px" width="35px" alt="">
+                            Téléphones
+                        </h4>
+                        <a href="tel:+237672144191">+237 6 72 14 41 91</a><br>
+                        <a href="tel:+237656961805">+237 6 56 96 18 05</a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="contact__info-item">
+                        <h4 class="title">
+                            <img src="assets/img/icon/calendar.gif" style="margin-top: -10px;" height="35px" width="35px" alt="">
+                            Jours d'ouvertures
+                        </h4>
+                        <p class="info-two">Lundi – Vendredi: <span>08:30 – 17:00</span> <br> Samedi: <span>08:30 – 12:00</span></p>
+                    </div>
+                </div>
+            </div>
+            <div style="margin-top: 35px;" class="row">
+                <div class="col-12">
+                    <div class="contact-map contact-map-two">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3979.827093848885!2d9.700508199999998!3d4.0556563!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1061125e189d9e85%3A0xc34b9ee56ef78d0e!2s318%20Rue%20Drouot%2C%20Douala!5e0!3m2!1sfr!2scm!4v1736861164774!5m2!1sfr!2scm" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- contact-area-end -->
+</main>
+<!-- main-area-end -->
+<!-- footer-area -->
+<app-footer />
+<!-- footer-area-end -->
