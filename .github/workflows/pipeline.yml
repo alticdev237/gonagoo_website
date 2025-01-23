@@ -22,8 +22,6 @@ jobs:
         uses: webfactory/ssh-agent@v0.5.3
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
-      - name: Configure Git to accept the directory as safe
-        run: git config --global --add safe.directory /var/www/gonagoo-website
       - name: Clone the repository and Deploy to VPS
         run: |
           git clone https://alticdev237:${{ secrets.PERSONAL_ACCESS_TOKEN }}@github.com/alticdev237/gonagoo_website.git ${{ secrets.VPS_USERNAME }}@${{ secrets.VPS_IP }}:/var/www/gonagoo-website
