@@ -30,8 +30,7 @@ jobs:
       - name: Extract project version
         id: extract_version
         run: |
-          cd src
-          echo "VERSION=$(jg -r '.version' package.json)" >> $GITHUB_OUTPUT
+          echo "VERSION=$(jq -r '.version' package.json)" >> $GITHUB_ENV
 
       - name: Login to Docker Hub
         uses: docker/login-action@v3
