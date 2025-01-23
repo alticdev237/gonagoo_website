@@ -26,7 +26,7 @@ jobs:
         run: git config --global --add safe.directory /var/www/gonagoo-website
       - name: Clone the repository and Deploy to VPS
         run: |
-          git clone https://${{ secrets.PERSONAL_ACCESS_TOKEN }}@github.com/alticdev237/gonagoo_website.git ${{ secrets.VPS_USERNAME }}@${{ secrets.VPS_IP }}:/var/www/gonagoo-website
+          git clone https://${{ secrets.PERSONAL_ACCESS_TOKEN }}@github.com/alticdev237/gonagoo_website.git /var/www/gonagoo-website
           ssh -o StrictHostKeyChecking=no ${{ secrets.VPS_USERNAME }}@${{ secrets.VPS_IP }} "cd /var/www/gonagoo-website && git pull origin main && docker-compose up -d"
       - name: Extract project version
         id: extract_version
