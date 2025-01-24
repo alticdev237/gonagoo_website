@@ -20,7 +20,7 @@ RUN npm run build --prod
 FROM nginx:alpine
 
 # Copier les fichiers construits de l'étape précédente
-COPY --from=build /app/dist/gonagoo-website /usr/share/nginx/html
+COPY --from=build /app/dist/gonagoo /usr/share/nginx/html
 
 # Copier le fichier de configuration Nginx
 COPY nginx.conf /etc/nginx/nginx.conf
