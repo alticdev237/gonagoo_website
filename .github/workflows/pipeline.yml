@@ -30,11 +30,11 @@ jobs:
           ssh-add ~/.ssh/id_rsa
       - name: Add SSH key to known hosts
         run: ssh-keyscan -H ${{ secrets.VPS_IP }} >> ~/.ssh/known_hosts
+      - name: Configure Git to accept the directory as safe
+        run: git config --global --add safe.directory /var/www/gonagoo-website
       - name: Deploy to VPS
         run: |
           ssh -o StrictHostKeyChecking=no ${{ secrets.VPS_USERNAME }}@${{ secrets.VPS_IP }} "cd /var/www/gonagoo-website && git pull origin main && docker-compose up -d"
-      - name: Configure Git to accept the directory as safe
-        run: git config --global --add safe.directory /var/www/gonagoo-website
       - name: Extract project version
         id: extract_version
         run: |
