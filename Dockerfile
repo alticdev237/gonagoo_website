@@ -17,4 +17,4 @@ COPY . .
 EXPOSE 80
 
 # Démarrer Nginx
-CMD ["npm", "run", "start"]
+CMD ["ng", "serve", "--host", "0.0.0.0", "--port", "80"]
