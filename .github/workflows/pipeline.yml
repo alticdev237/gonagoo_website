@@ -63,6 +63,12 @@ jobs:
     runs-on: ubuntu-latest
     needs: [ build-image ]
     steps:
+      - name: Set up SSH
+        run: |
+          echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -H ${{ secrets.VPS_IP }} >> ~/.ssh/known_hosts
+          chmod 644 ~/.ssh/known_hosts
       - name: Create deployment folder
         run: ssh -vvv -o StrictHostKeyChecking=no ${{ secrets.VPS_USERNAME }}@${{ secrets.VPS_IP }} "mkdir -p /var/www/gonagoo-website"
         env:
