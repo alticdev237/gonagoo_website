@@ -53,7 +53,8 @@ jobs:
           context: .
           file: Dockerfile
           push: true
-          platform: linux/amd64,linux/arm64
+          build-args: |
+            --platform linux/amd64,linux/arm64
           tags: |
             ${{ secrets.DOCKERHUB_USERNAME }}/gonagoo-website:1.0.0
             ${{ secrets.DOCKERHUB_USERNAME }}/gonagoo-website:latest
@@ -63,6 +64,6 @@ jobs:
     needs: [ build-image ]
     steps:
       - name: Create deployment folder
-        run: ssh -o StrictHostKeyChecking=no ${{ secrets.VPS_USERNAME }}@${{ secrets.VPS_IP }} "mkdir -p /var/www/gonagoo-website"
+        run: ssh -vvv -o StrictHostKeyChecking=no ${{ secrets.VPS_USERNAME }}@${{ secrets.VPS_IP }} "mkdir -p /var/www/gonagoo-website"
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
