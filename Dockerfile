@@ -29,4 +29,4 @@ COPY --from=build /app/dist/gonagoo /usr/share/nginx/html
 EXPOSE 80
 
 # Démarrer Nginx
-CMD ["nginx", "-g", "daemon off;", "ng", "serve", "--host", "0.0.0.0", "--port", "80"]
+CMD ["nginx", "-g", "daemon off;"]
