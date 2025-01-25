@@ -14,13 +14,13 @@ RUN npm install
 COPY . .
 
 # Construire l'application Angular
-RUN npm run build --prod
+RUN npm run build
 
 # Utiliser une image Nginx pour servir l'application Angular
 FROM nginx:alpine
 
 # Copier les fichiers construits de l'étape précédente
-COPY --from=build /app/dist/gonagoo /usr/share/nginx/html
+COPY --from=build /app/dist/out-tsc /usr/share/nginx/html
 
 # Copier le fichier de configuration Nginx
 COPY nginx.conf /etc/nginx/nginx.conf
