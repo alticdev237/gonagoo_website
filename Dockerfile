@@ -1,5 +1,5 @@
 # Utiliser une image Node.js pour construire l'application Angular
-FROM node:22.9.0 AS build
+FROM node:22.9.0 as build-stage
 
 # Définir le répertoire de travail
 WORKDIR /app
@@ -19,11 +19,11 @@ RUN npm run build --prod
 # Utiliser une image Nginx pour servir l'application Angular
 FROM nginx:alpine
 
-# Copier les fichiers construits de l'étape précédente
-COPY --from=build /app/dist/gonagoo /usr/share/nginx/html
-
 # Copier le fichier de configuration Nginx
 COPY nginx.conf /etc/nginx/nginx.conf
+
+# Copier les fichiers construits de l'étape précédente
+COPY --from=build-stage /app/dist/gonagoo /usr/share/nginx/html
 
 # Exposer le port 80
 EXPOSE 80
